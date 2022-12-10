@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+
+    --clr-cream: rgb(228, 222, 222);
+    --clr-darker-cream: rgb(197, 190, 190);
+    --clr-gray: #1a1a1a;
+    --clr-teal: #088178;
+    --clr-product-bg: #e8f6ea;
+    --clr-product-border: #cce7d0;
+    --clr-darkest-shadow: rgba(0, 0, 0, .08);
+    --clr-dark-border: rgba(0, 0, 0, .06);
+    --clr-dark-shadow: rgba(0, 0, 0, .02);
+    --clr-yellow: rgb(243, 181, 25);
+    --clr-smoke: #262727;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    font-family: 'Spartan', sans-serif;
+}
+
+
+/* Navbar */
+nav {
+    background-color: var(--clr-cream);
+    color: var(--clr-gray);
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 5px 25px var(--clr-dark-border);
+}
+nav h1 {
+    font-weight: 400;
+}
+
+nav .mainMenu {
+    display: flex;
+    list-style: none;
+}
+
+nav .mainMenu li a {
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--clr-gray);
+    font-size: 18px;
+    height: 50px;
+    transition: top .9s ease 0s;
+    position: relative;
+}
+
+nav .fa-shopping-cart {
+    font-size: 18px;
+}
+
+nav .mainMenu li a:hover,
+nav .mainMenu li a.active,
+nav .closeMenu .fa-times:hover,
+nav .openMenu .fa-bars:hover {
+    color: var(--clr-teal);
+}
+
+nav .mainMenu li a.active::after,
+nav .mainMenu li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: var(--clr-teal);
+    position: absolute;
+    bottom: 12px;
+    left: 17px;
+}
+
+nav .openMenu {
+    font-size: 2rem;
+    margin: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+nav .mainMenu .closeMenu,
+.icons i {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+}
+
+.fa-facebook:hover,
+.fa-twitter:hover,
+.fa-instagram:hover {
+    color: var(--clr-teal);
+}
+
+nav .logo {
+    margin: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 800px) {
+    nav .mainMenu {
+        height: 100vh;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        left: 0px;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-cream);
+        transition: top .9s ease 0s;
+        display: none;
+    }
+
+    nav .mainMenu .closeMenu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    nav .openMenu {
+        display: block;
+    }
+
+    nav .mainMenu li a:hover {
+        background: none;
+        color: var(--clr-teal);
+    }
+
+    .icons i {
+        display: inline-block;
+        padding: 12px;
+    }
+
+    nav .mainMenu li a.active::after,
+    nav .mainMenu li a:hover::after {
+    width: 0%;
+    }
+    
+}
+
+/* Hero */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    height: 40vh;
+    background-image: linear-gradient(0deg, #00000088 80%, #ffffff11 100%), url(../images/hero-banner.jpg);
+    background-position: top 70% right 0;
+    background-size: cover;
+    justify-content: center;
+    color: var(--clr-darker-cream);
+    margin-bottom: 30px;
+}
+
+.header h4,
+.header h2,
+.header h1 {
+    padding-bottom: 5px;
+}
+
+.header p {
+    padding-bottom: 25px;
+}
+
+.header a {
+    padding: 0px 45px;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    background-color: var(--clr-darker-cream);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--clr-smoke);
+    font-weight: 700;
+    font-size: 18px;
+    border: 1px solid var(--clr-darker-cream);
+}
+
+.header a:hover {
+    background-color: var(--clr-teal);
+    color: var(--clr-darker-cream);
+    border: 1px solid var(--clr-darker-cream);
+}
+
+/* Media Query for Phone @ 375px*/
+@media screen and (max-width: 375px) {
+
+    .header {
+        max-height: 400px;
+    }
+
+    .header h4,
+    .header p {
+        font-size: 14px;
+    }
+
+    .header h2 {
+        font-size: 16px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+}
+
+/* Featured Products Section */
+
+#featured-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-gray);
+}
+
+.featured-products-container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.featured-products-container h3{
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    width: 21%;
+    min-width: 180px;
+    padding: 10px 12px;
+    border: 1px solid var(--clr-dark-border);
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 5px var(--clr-dark-shadow);
+    margin: 15px 20px;
+    transition: 0.2s ease;
+}
+
+.product:hover {
+    box-shadow: 0px 0px 10px 10px var(--clr-darkest-shadow);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.product .description {
+    text-align: start;
+    padding: 10px 0px;
+    line-height: 24px;
+    position: relative;
+}
+
+.product .description span {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.product .description .star-ratings {
+    color: var(--clr-yellow);
+}
+
+.product .fa-shopping-cart {
+    color: var(--clr-teal);
+    background-color: var( --clr-product-bg);
+    padding: 12px;
+    border-radius: 50%; 
+    border: 1px solid var(--clr-product-border);
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    transition: .3s ease;
+}
+
+.product .fa-shopping-cart:hover {
+    color: var( --clr-product-bg);
+    background-color: var(--clr-teal);
+}
+
+@media screen and (min-width: 375px) {
+
+    .featured-products-container h1 {
+        font-size: 28px;
+    }
+
+    .featured-products-container h3 {
+        font-size: 16px;
+    }
+
+    .product {
+        margin: 12px 2px;
+    }
+
+    .product .fa-shopping-cart {
+        right: 0px;
+        padding: 7px;
+    }
+
+    .product .description span {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .product .description h5 {
+        font-size: 10px;
+        font-weight: 500;
+    }
+}
+
+/* Repair Services & Sale Section */
+#banner {
+    padding: 40px 80px;
+    margin: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(0deg, #14141488 10%, #ffffff11 100%), url("../images/banner/b2.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 30vh;
+    color: var(--clr-darker-cream);
+}
+
+#banner h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#banner h2 {
+    font-size: 46px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#banner a {
+    padding: 0px 45px;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    background-color: transparent;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--clr-darker-cream);
+    font-weight: 700;
+    font-size: 18px;
+    border: 1px solid var(--clr-darker-cream);
+}
+
+#banner a:hover {
+    background-color: var(--clr-teal);
+    color: var(--clr-darker-cream);
+    border: 1px solid var(--clr-darker-cream);
+}
+
+/* Media Query for Tablet size of 768px */
+@media screen and (max-width: 768px) {
+    #banner {
+        height: 20vh;
+        background-size: contain 20vh;
+        background-repeat: no-repeat;
+        background-position: 80%;
+        text-align: center;
+        padding: 0px 0px;
+        margin: 0px 0px 20px 0px;
+    }
+
+    #banner h4 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    #banner h2 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    #banner h2 span:nth-child(2) {
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+/* Media Query for Mobile size of 375px*/
+@media screen and (max-width: 375px) {
+    #banner {
+        height: 20vh;
+        background-size: contain 20vh;
+        background-repeat: no-repeat;
+        background-position: 80%;
+        text-align: center;
+        padding: 0px 0px;
+        margin: 0px 0px 20px 0px;
+    }
+
+    #banner h4 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    #banner h2 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    #banner h2 span:nth-child(2) {
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+/* New Arrival Product Section */
+
+#new-arrival-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-gray);
+}
+
+.new-arrival-product-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Small Banner Section With Sales Section */
+#sm-banner {
+    padding: 20px 80px;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#banner3 {
+    padding: 0px 80px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#banner3 .smaller-box h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+#banner3 .smaller-box h2 {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+#banner3 .winter {
+    background-image:linear-gradient(0deg, #36363688 30%, #ffffff11 100%), url("../images/banner/b7.jpg");
+}
+
+#banner3 .new-collection {
+    background-image:linear-gradient(0deg, #36363688 30%, #ffffff11 100%), url("../images/banner/b4.jpg");
+}
+
+#banner3 .style {
+    background-image:linear-gradient(0deg, #36363688 30%, #ffffff11 100%), url("../images/banner/b18.jpg");
+}
+
+#banner3 .smaller-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 360px;
+    flex: 1 1 30vh;
+    margin: 10px 25px;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    color: var(--clr-darker-cream);
+}
+
+
+.banner-box,
+.banner-box-collection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(0deg, #14141488 10%, #ffffff11 100%),url("../images/banner/b17.jpg");
+    min-width: 360px;
+    flex: 1 1 40vh;
+    margin: 10px 25px;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    color: var(--clr-darker-cream);
+}
+
+.banner-box-collection {
+    background-image:linear-gradient(0deg, #14141488 10%, #ffffff11 100%), url("../images/banner/b10.jpg");
+}
+
+#sm-banner h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#sm-banner h2 {
+    font-size: 46px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#sm-banner p {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+#sm-banner a {
+    padding: 0px 45px;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    background-color: transparent;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--clr-darker-cream);
+    font-weight: 700;
+    font-size: 18px;
+    border: 1px solid var(--clr-darker-cream);
+}
+
+#sm-banner a:hover {
+    background-color: var(--clr-teal);
+    color: var(--clr-darker-cream);
+    border: 1px solid var(--clr-darker-cream);
+}
+
+/* Media Query for Mobile at 768px*/
+@media screen and (max-width: 768px) {
+    #sm-banner {
+        margin: 20px 0px 0px 0px;
+    }
+}
+
+/* Media Query for Mobile at 375px*/
+@media screen and (max-width: 375px) {
+    #sm-banner h2 {
+        font-size: 30px;
+    }
+
+    #banner3 .smaller-box h2 {
+        font-size: 18px;
+    }
+}
+
