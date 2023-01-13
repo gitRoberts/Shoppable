@@ -412,6 +412,39 @@ nav .logo {
     margin-bottom: 20px;
 }
 
+/* Hidden Product Menu */
+.Absolute-Center { 
+    height: 50%; 
+    width: 50%; 
+    overflow: auto; 
+    margin: auto; 
+    position: absolute; 
+    top: 0; left: 0; bottom: 0; right: 0; 
+  }
+
+  .Center-Container { position: relative; }
+  
+  .overlay.is-Fixed,
+  .Absolute-Center.is-Fixed { 
+    position: fixed;
+    z-index: 999;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .overlay {
+    height: 100%; 
+    width: 100%; 
+    overflow: auto; 
+    margin: auto; 
+    position: absolute; 
+    top: 0; left: 0; bottom: 0; right: 0; 
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 998;
+  }
+  
 /* Footer Section */
 .footer-container{
 	max-width: 1170px;

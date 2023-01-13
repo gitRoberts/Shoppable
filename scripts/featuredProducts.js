@@ -31,9 +31,9 @@ function drawProductsOnScreen(input) {
         </div>`;
 
         productsContainer.insertAdjacentHTML("beforeend", html);
-    }
-    
+    } 
 }
+
 
 
 getFeaturedProducts();
