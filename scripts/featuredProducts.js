@@ -1,4 +1,6 @@
 let productsContainer = document.querySelector(".product-container");
+let productDetail = document.querySelector(".product-detail");
+let overlay = document.querySelector(".overlay");
 
 async function getFeaturedProducts() {
     try {
@@ -28,12 +30,19 @@ function drawProductsOnScreen(input) {
                 <h4>${input[i].price}</h4>
                 <a href="#"><i class="fa fa-shopping-cart"></i></a>
             </div>
-        </div>`;
-
+        </div>`;  
         productsContainer.insertAdjacentHTML("beforeend", html);
     } 
 }
 
+function popUpDetailedProductMenu(evt) {
+    productDetail.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    console.log(evt);
+}
+
+
 
 
 getFeaturedProducts();
+
